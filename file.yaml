@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: {}
+Metadata: {} 
+Parameters:
+vpccidr:
+  Description: provide the cidr
+  Type: String
+Mappings: {} 
+Conditions: {} 
+Resources: 
+vpc4:
+  Type: AWS::EC2::VPC
+  Properties:
+    CidrBlock: !Ref vpccidr
+    Tags:
+      - Key: Name
+        Value: vpc4
+Outputs: {}
