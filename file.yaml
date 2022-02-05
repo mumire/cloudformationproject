@@ -35,21 +35,6 @@ pubsub4:
     CidrBlock: !Ref pubsub4cidr
     Tags:
       - Key: Name
-<<<<<<< HEAD
-        Value: pubsub4       
-igwName:
-  Type: AWS::EC2::InternetGateway
-  Properties:
-    Tags:
-      - Key: keyname
-        Value: value
-AttachGateway:
-  Type: AWS::EC2::VPCGatewayAttachment
-  Properties:
-    VpcId: vpc-id
-    InternetGatewayId: !Ref igwName 
-Outputs: {}
-=======
         Value: pubsub4
 prisub4:
   Type: AWS::EC2::Subnet
@@ -60,5 +45,4 @@ prisub4:
     Tags:
       - Key: Name
         Value: prisub4
-        Outputs: {}
->>>>>>> 38e4e8229e73c341ebc35277046f1743fb44c701
+Outputs: {}
