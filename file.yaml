@@ -11,6 +11,12 @@ pubsub4AZ:
 pubsub4cidr:
   Description: provide cidr for public subnet
   Type: String
+prisub4cidr:
+  Description: provide the vpcid
+  Type: String
+prisubcidrId:
+  Description: provide the cidr
+  Type: String
 Mappings: {} 
 Conditions: {} 
 Resources: 
@@ -29,5 +35,14 @@ pubsub4:
     CidrBlock: !Ref pubsub4cidr
     Tags:
       - Key: Name
-        Value: pubsub4        
-Outputs: {}
+        Value: pubsub4
+prisub4:
+  Type: AWS::EC2::Subnet
+  Properties:
+    AvailabilityZone: !Ref prisubaz
+    VpcId: !Ref vpc4
+    CidrBlock: !Ref privsub4az
+    Tags:
+      - Key: Name
+        Value: prisub4
+        Outputs: {}
