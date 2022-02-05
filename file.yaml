@@ -5,6 +5,12 @@ Parameters:
 vpccidr:
   Description: provide the cidr
   Type: String
+pubsub4AZ:
+  Description: provide availability zone
+  Type: String
+pubsub4cidr:
+  Description: provide cidr for public subnet
+  Type: String
 Mappings: {} 
 Conditions: {} 
 Resources: 
@@ -15,4 +21,13 @@ vpc4:
     Tags:
       - Key: Name
         Value: vpc4
+pubsub4:
+  Type: AWS::EC2::Subnet
+  Properties:
+    AvailabilityZone: !Ref pubsub4AZ
+    VpcId: !Ref vpc4
+    CidrBlock: !Ref pubsub4cidr
+    Tags:
+      - Key: Name
+        Value: pubsub4        
 Outputs: {}
